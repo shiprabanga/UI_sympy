@@ -1,4 +1,5 @@
 import kivy
+from mpmath import *
 kivy.require('1.5.1')
 from kivy.uix.button import Button
 from kivy.uix.gridlayout import GridLayout
@@ -43,16 +44,19 @@ class entrywidget(GridLayout):
         arr = z.split('=')
         x = Symbol("x")
         y = Symbol("y")
-        z = Symbol("z")
+       # z = Symbol("z")
         t = Symbol("t")
         if(len(arr) > 1):
+	    print 'enter'
             x = eval(arr[1])
-            t = eval(arr[1])
-            t = str(t)
+            p = eval(arr[1])
+            p = str(p)
+	    l = Label(text = p)
+	    self.add_widget(l)
         else:
-            t = eval(z)
-            t = str(t)
-            l = Label(text = t)
+            p = eval(z)
+            p = str(p)
+            l = Label(text = p)
             self.add_widget(l)
             flag = 1
 
